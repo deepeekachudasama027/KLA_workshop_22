@@ -1,8 +1,7 @@
 import yaml
 import sys
-from datetime import datetime,timedelta
+from datetime import datetime
 import time
-from time import sleep, perf_counter
 from threading import Thread
 
 def function_1(activities, key):

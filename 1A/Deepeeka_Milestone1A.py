@@ -7,17 +7,16 @@ def function_1(activities, key):
     if activities['Execution'] == 'Sequential':
         function_2(activities['Activities'], key)
 
-
 def function_2(activities, key):
     for k in activities:
         if activities[k]['Type'] == 'Task':
             print(datetime.now(), end=';')
             print(f'{key}.{k} Entry')
             if activities[k]['Function'] == 'TimeFunction':
-                input = activities[k]['Inputs']['FunctionInput']
+                input =activities[k]['Inputs']['FunctionInput']
                 process_time = activities[k]['Inputs']['ExecutionTime']
                 print(datetime.now(), end=';')
-                print(f'{k} Executing TimeFunction {input, process_time}')
+                print(f'{key}.{k} Executing TimeFunction ({input}, {process_time})')
                 time.sleep(int(process_time))
 
             print(datetime.now(), end=';')
@@ -26,7 +25,7 @@ def function_2(activities, key):
         elif activities[k]['Type'] == 'Flow':
             print(datetime.now(), end=';')
             print(f'{key}.{k} Entry')
-            function_1(activities[k], key+k)
+            function_1(activities[k], key+'.'+k)
             print(datetime.now(), end=';')
             print(f'{key}.{k} Exit')
 

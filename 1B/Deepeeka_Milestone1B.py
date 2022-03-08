@@ -58,15 +58,6 @@ def function_3(activities, key):
     for t in threads:
         t.join()
     
-    for j in (len(a)-1, -1, -1):      
-        print(datetime.now(), end=';')
-        print(f'{a[j]} Exit')      
-        
-            
-    # print(datetime.now(), end=';')
-    # print(f'{key} Exit')
-    
-
 
 def function_4(activities,key,k):
     print(datetime.now(), end=';')
@@ -78,10 +69,15 @@ def function_4(activities,key,k):
         print(f'{key}.{k} Executing TimeFunction ({input}, {process_time})')
         time.sleep(int(process_time))
         
+    print(datetime.now(), end=';')
+    print(f'{key}.{k} Exit')
+        
 def function_5(activities,key,k):
     print(datetime.now(), end=';')
     print(f'{key}.{k} Entry')
     function_1(activities[k], key+'.'+k)
+    print(datetime.now(), end=';')
+    print(f'{key}.{k} Exit')
 
 
 with open('Milestone1B.yaml', 'r') as file:
